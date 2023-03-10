@@ -1,0 +1,18 @@
+
+
+ext{
+    compileSdk_Version = 33
+    targetSdk_Version = 33
+    minSdk_Version = 23
+    versionCode = 1
+    versionName = "1.0"
+    kotlinVersion = "1.7.20"
+
+    roomVersion = "2.5.0"
+    gsonVersion = "2.9.0"
+    ktxVersion = "2.2.0"
+    retrofitVersion = "2.9.0"
+    coroutineVersion = "2.3.0-rc01"
+    okhttpVersion = "4.9.3"
+    hiltVersion = "2.42"
+}
