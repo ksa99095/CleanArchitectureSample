@@ -6,7 +6,7 @@ import ksr.android.data.mapper.SampleMapper
 import ksr.android.data.model.SampleEntity
 
 class SharedPreference(context: Context) {
-    private val preference: SharedPreferences = context.getSharedPreferences("SAMPLE", Context.MODE_PRIVATE)
+    private val preference: SharedPreferences = context.getSharedPreferences(SAMPLE, Context.MODE_PRIVATE)
 
     fun getSample(): SampleEntity {
         val sampleString = preference.getString(SAMPLE, "")

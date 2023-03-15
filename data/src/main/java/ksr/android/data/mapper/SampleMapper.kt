@@ -32,19 +32,6 @@ object SampleMapper {
         )
     }
 
-    fun mapperToSampleList(sampleEntityList: List<SampleEntity>): List<Sample> {
-
-        val sampleList = mutableListOf<Sample>()
-
-        sampleEntityList.forEach {
-            sampleList.add(
-                Sample(title = it.title, content = it.content)
-            )
-        }
-
-        return sampleList
-    }
-
     fun mapperStringToSample(string: String): SampleEntity {
         return Gson().fromJson(string, SampleEntity::class.java)
     }
