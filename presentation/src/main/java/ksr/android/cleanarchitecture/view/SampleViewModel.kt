@@ -1,5 +1,6 @@
 package ksr.android.cleanarchitecture.view
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import ksr.android.cleanarchitecture.base.BaseViewModel
@@ -16,18 +17,18 @@ class SampleViewModel @Inject constructor (
     private val setPreferenceSampleUseCase: SetPreferenceSampleUseCase
 ): BaseViewModel() {
 
-    val sample = MutableLiveData<Sample>()
-    val setState = MutableLiveData<Boolean>()
+    private val _sample = MutableLiveData<Sample>()
+    val sample: LiveData<Sample> get() = _sample
 
     fun getRemoteSample() {
         launchViewModelScope {
-            sample.postValue(getRemoteSampleUseCase.invoke())
+            _sample.postValue(getRemoteSampleUseCase.invoke())
         }
     }
 
     fun getLocalSample(title: String) {
         launchViewModelScope {
-            sample.postValue(getLocalSampleUseCase.invoke(title))
+            _sample.postValue(getLocalSampleUseCase.invoke(title))
         }
     }
 
@@ -39,7 +40,7 @@ class SampleViewModel @Inject constructor (
 
     fun getPrefSample() {
         launchViewModelScope {
-            sample.postValue(getPreferenceSampleUseCase.invoke())
+            _sample.postValue(getPreferenceSampleUseCase.invoke())
         }
     }
 
